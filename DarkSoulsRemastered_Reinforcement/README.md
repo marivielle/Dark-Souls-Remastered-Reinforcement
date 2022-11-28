@@ -1,25 +1,28 @@
-# AI for Video Games: How Different Inputs Affect Dark Souls AI Performance in Custom Environment
+# Folder Descriptions
 
-Dissertation project built to compare observation spaces and state data types (backend numerical data vs image captures) using a custom built environment in Dark Souls: Remastered. Although already handed in, this is an ongoing project. 
+## All scores
 
-The aim of this project is to implement a custom environment and reinforcement learning model to determine the best observation space and state data type for the game Dark Souls: Remastered. The model will attempt to defeat an enemy with either discrete value or image inputs, in a custom OpenAI Gym environment. Each evolution of the model should have minimal changes to accommodate different inputs as to ensure fair comparisons of the data, with live information collected from the game process to be used as the inputs. 
+.csv files of the most recent runs, along with the python file to plot them. Includes the scores for the second iteration of the backend input, the improved backend input environment, and the image input (v1, v1.5 and img_v0)
 
+## DarkSoulsRemastered_v0
 
-## Installation
-
-Cheat Engine needed to access backend information, as well as the appropriate table (https://fearlessrevolution.com/viewtopic.php?t=8422).
-
-## Dependencies
-Tensorflow
-OpenAI Gym
-ReadWriteMemory
-Numpy
-OpenCV (Image input)
-
-Game and Cheat Engine must be left open and running while model runs.
+First ever iteration that showed no improvement in scores. Uses backend numerical data.
 
 
-## Future work
+## DarkSoulsRemastered_v1
 
-Currently testing RLib to apply a hybrid observation space of both image and backend input.
-Further development on environment needed, current challenge is identifying when animation is done and next move can be performed. Currently using timings which can be innacurate if there's any lag as this version (Steam) of Dark Souls does not allow cheat engine to access all information needed.
+Second iteration with improved environment that applies better timings. Uses backend numerical data.
+
+## DarkSoulsRemastered_v1.5
+
+Current best iteration. Uses backend numerical data.
+
+
+## DarkSoulsRemastered_img_v0
+
+First iteration of the image input, currently the env step is different to other versions I continue testing different rewards. Uses image data as input, and backend data to check boss/player health to judge reward.
+
+
+## Save_File
+
+Save file loaded whenever model dies to avoid items losing durability, and ensure each run the model is in the same state.
